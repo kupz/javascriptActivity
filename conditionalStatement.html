@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    div {
+      padding: 1rem;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    div input {
+      padding: 1rem;
+    }
+  </style>
+  <body>
+    <div>
+      <h2>Retirement Calculator</h2>
+      <input type="text" placeholder="enter your current age" id="ageInput" />
+      <p id="result"></p>
+    </div>
+    <script>
+      function calculateAge(event) {
+        const age = document.querySelector("#ageInput").value;
+        const retirementAge = 70;
+        const yearsLeft = retirementAge - age;
+        const result = document.querySelector("#result");
+
+        if (isNaN(age)) {
+          result.textContent =
+            "Invalid Input. Please enter a valid number for age.";
+        }
+
+        if (yearsLeft > 0) {
+          result.textContent = `You are currently ${age} years old. You have ${yearsLeft} years left until retirement.`;
+        } else if (yearsLeft === 0) {
+          result.textContent = `Congratulations! You have reach the retirement age of ${retirementAge}. Enjoy your retirement!`;
+        } else {
+          result.textContent = `You are already retired. Enjoy your retirement!`;
+        }
+      }
+      document
+        .querySelector("#ageInput")
+        .addEventListener("input", calculateAge);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Structure & Algorithm</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Search Lastname</h1>
+      <input type="text" id="searchInput" />
+      <h2>search result</h2>
+      <ul id="displayResult"></ul>
+    </div>
+
+    <script>
+      const employees = [
+        {
+          id: 1,
+          name: "ben John",
+          lastname: "villabesa",
+          department: "IT",
+        },
+        {
+          id: 2,
+          name: "John",
+          lastname: "Doe",
+          department: "Finance",
+        },
+        {
+          id: 3,
+          name: "Ronel",
+          lastname: "Talavera",
+          department: "NDC",
+        },
+        {
+          id: 4,
+          name: "Cassandra",
+          lastname: "Toto",
+          department: "HR",
+        },
+        {
+          id: 5,
+          name: "Arjay",
+          lastname: "Dela Cruz",
+          department: "NDC",
+        },
+      ];
+      let searchInput = document.querySelector("#searchInput");
+      searchInput.addEventListener("input", (e) => {
+        console.log(e.target.value);
+        const searchResult = employees.filter(
+          (employee) => employee.lastname === e.target.value
+        );
+        if (searchResult) {
+          let listItem = [];
+          searchResult.map((item) => {
+            listItem.push(`<li>First Name : ${item.name}</li>`);
+            listItem.push(`<li>Lastname : ${item.lastname}</li>`);
+            listItem.push(`<li>Department : ${item.department}</li>`);
+            listItem.push(`<li>Employee ID : ${item.id}</li>`);
+          });
+          document.querySelector("#displayResult").innerHTML =
+            listItem.join("");
+        }
+      });
+    </script>
+  </body>
+</html>

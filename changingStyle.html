@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity</title>
+  </head>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      align-items: center;
+    }
+    .sample1,
+    .sample2,
+    .sample3 {
+      border: 1px solid black;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 500px;
+    }
+  </style>
+  <body>
+    <div class="sample1">
+      <h1>😂</h1>
+      <button id="btn1" onmouseover="myFunctionOne()">Click me</button>
+    </div>
+    <div class="sample2">
+        <h1 id="sample2">😂</h1>
+    </div>
+    <div class="sample3"></div>
+    <script>
+      btn1 = document.getElementById("btn1");
+      let toggleValue = 1;
+      function myFunctionOne() {
+        if (toggleValue === 1) {
+          btn1.style.transform = "translate(-100%)";
+          toggleValue = 0;
+        } else {
+          btn1.style.transform = "translate(100%)";
+          toggleValue = 1;
+        }
+      }
+    </script>
+    <script>
+        const sample2 = document.getElementById('sample2')
+    </script>
+  </body>
+</html>
